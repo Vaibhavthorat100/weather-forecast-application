@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Dashboard</title>
+  <!-- Tailwind CDN for quick styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="weather css.css" />
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <!-- Header -->
+  <header class="bg-blue-600 text-white text-center py-4 text-2xl font-bold">
+    Weather Dashboard
+  </header>
+
+  <main class="max-w-6xl mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- LEFT: Search / controls -->
+    <aside class="bg-white rounded-lg shadow p-4">
+      <label for="cityInput" class="block font-semibold mb-2">Enter a City Name</label>
+      <!-- Input for city -->
+      <input id="cityInput" type="text" placeholder="E.g. New York, London, Tokyo"
+             class="border rounded-lg p-2 w-full mb-3" />
+
+      <!-- Search button -->
+      <button id="searchBtn"
+              class="bg-blue-500 w-full text-white px-4 py-2 rounded-lg hover:bg-blue-600 mb-2">
+        Search
+      </button>
+
+      <div class="text-center text-gray-500 my-2">OR</div>
+
+      <!-- Use browser geolocation -->
+      <button id="locationBtn"
+              class="bg-gray-600 w-full text-white px-4 py-2 rounded-lg hover:bg-gray-700">
+        Use Current Location
+      </button>
+
+      <!-- Recent searches dropdown (populated from localStorage) -->
+      <div class="mt-4">
+        <label class="font-semibold">Recent Searches:</label>
+        <select id="recentCities" class="border rounded-lg p-2 w-full mt-1">
+          <option value="">Select</option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- RIGHT (main) -->
+    <section class="md:col-span-2">
+      <!-- Current weather card -->
+      <div id="currentWeather" class="bg-blue-200 rounded-lg shadow p-6 flex justify-between items-center">
+        <div>
+          <h2 id="cityName" class="text-xl font-bold">City Name</h2>
+          <p id="date" class="text-sm">Date</p>
+          <p id="temperature" class="text-lg">Temp: --°C</p>
+          <p id="wind">Wind: -- m/s</p>
+          <p id="humidity">Humidity: --%</p>
+          <!-- toggle unit (optional) -->
+          <button id="toggleUnit" class="mt-2 bg-yellow-400 px-3 py-1 rounded-lg">Switch to °F</button>
+        </div>
+
+        <div class="text-center">
+          <!-- DEFAULT icon shown on page load (your file: icons/dry.png) -->
+          <img id="weatherIcon"
+               src="dry.png"
+               alt="Weather Icon"
+               class="w-24 h-24 mx-auto" />
+
+          <p id="description" class="text-lg font-semibold">---</p>
+        </div>
+      </div>
+
+      <!-- 5-day forecast (cards) -->
+      <h2 class="font-bold text-lg mt-6 mb-3">5-Day Forecast</h2>
+      <div id="forecast" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4"></div>
+    </section>
+  </main>
+
+  <!-- Main JS -->
+  <script src="weather js.js"></script>
+</body>
+</html>

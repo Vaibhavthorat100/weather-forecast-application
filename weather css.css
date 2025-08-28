@@ -1,0 +1,22 @@
+/* Custom dynamic weather backgrounds (apne design ke liye) */
+
+/* Sunny / clear */
+body.sunny {
+  background: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+/* Rainy background */
+body.rainy {
+  background: linear-gradient(to top, #bdc3c7 0%, #2c3e50 100%);
+}
+
+/* Cloudy background */
+body.cloudy {
+  background: linear-gradient(to top, #d7d2cc 0%, #304352 100%);
+}
+
+/* Small tweak so forecast cards look consistent */
+#forecast .rounded-lg img {
+  display: block;
+  margin: 6px auto;
+}
